@@ -1,35 +1,34 @@
-# LinkedIn 配置
+# LinkedIn 搜索配置
 LINKEDIN_URL = "https://www.linkedin.com/jobs/search/"
 
-# 搜索参数 - 根据需要修改
+# 基本搜索参数
 SEARCH_PARAMS = {
-    "keywords": "data","solution",  # 搜索关键词
-    "location": "Berlin",      # 地点
-    "f_WT": "1",                      # 远程工作 (2=远程)
-    "f_E": "2,3",                   # 经验级别 (2=初级, 3=中级, 4=高级)
-    "f_TPR": "r86400",                # 过去24小时发布的职位
-    "f_JT": "F",                      # 职位类型 (F=全职)
-    "f_AL": "false",                   # 易申请
+    "keywords": "software engineer",  # 搜索关键词
+    "location": "United States",      # 地点
+    "f_TPR": "r86400",               # 过去24小时发布的职位
+    "f_WT": "2",                     # 远程工作选项
+    "f_JT": "F",                     # 职位类型: F=全职
 }
 
-# 筛选条件
-JOB_CRITERIA = {
-    "required_skills": ["python", "sql", "analysis", "sql", "aws"],
-    "min_salary_mention": False,       # 是否要求提及薪资
-    "sponsorship_mention": False,      # 是否要求提及签证赞助
-    "english_only": True,             # 只要英文职位描述
-    "min_description_length": 200,    # 最小描述长度
+# 工作地点筛选 (根据需要修改)
+LOCATION_FILTER = {
+    "allowed_countries": ["United States", "Canada", "United Kingdom", "Australia"],
+    "work_arrangement": ["remote", "hybrid", "on-site"]  # 全部接受
 }
 
-# 语言检测配置
-ENGLISH_KEYWORDS = [
-    "experience", "skills", "development", "team", "project",
-    "requirements", "responsibilities", "software", "engineering"
-]
+# 英文检测配置
+ENGLISH_DETECTION = {
+    "min_english_score": 0.7,  # 英文检测阈值
+    "required_keywords": [
+        "experience", "skills", "development", "team", "project",
+        "requirements", "responsibilities", "software", "engineering",
+        "design", "implementation", "analysis", "management"
+    ]
+}
 
-# Selenium 配置
-WEBDRIVER_CONFIG = {
-    "headless": False,  # 设置为 True 在后台运行
-    "timeout": 30,
-    "implicit_wait": 10
+# 浏览器配置
+BROWSER_CONFIG = {
+    "headless": False,
+    "timeout": 20,
+    "implicit_wait": 5
 }
